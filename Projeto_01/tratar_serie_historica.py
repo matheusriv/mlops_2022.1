@@ -54,21 +54,21 @@ def sh_estado(nome_csv, pasta_dados, pasta_destino):
     Return:
         string: success message.
     """
-    precos_combustiveis = read_data(pasta_dados + nome_csv)
-    precos_combustiveis = precos_combustiveis.rename(columns={precos_combustiveis.columns[0]: "Regiao - Sigla"})
+    df = read_data(pasta_dados + nome_csv)
+    df = df.rename(columns={df.columns[0]: "Regiao - Sigla"})
     
-    precos_combustiveis['Valor de Venda'] = precos_combustiveis['Valor de Venda'].str.replace(',','.').astype(float)
-    precos_combustiveis = precos_combustiveis[precos_combustiveis['Produto'].str.contains('GASOLINA')]
+    df['Valor de Venda'] = df['Valor de Venda'].str.replace(',','.').astype(float)
+    df = df[df['Produto'].str.contains('GASOLINA')]
     
-    preco_gasolina_estados = precos_combustiveis.groupby('Estado - Sigla')[['Valor de Venda']].mean().round(2)\
-                             .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
+    df_estados = df.groupby('Estado - Sigla')[['Valor de Venda']].mean().round(2)\
+                 .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
     
-    nova_linha = {'Estado - Sigla': 'Total', 'Valor de Venda - Media': round(precos_combustiveis['Valor de Venda'].mean(), 2)}
-    preco_gasolina_estados = preco_gasolina_estados.append(nova_linha, ignore_index = True)
+    nova_linha = {'Estado - Sigla': 'Total', 'Valor de Venda - Media': round(df['Valor de Venda'].mean(), 2)}
+    df_estados = df_estados.append(nova_linha, ignore_index = True)
     
     nome_arquivo = 'preco_gasolina_estados_' + nome_csv[3:]
     
-    write_data(preco_gasolina_estados, pasta_destino + nome_arquivo)
+    write_data(df_estados, pasta_destino + nome_arquivo)
     
     return 'Escrevendo ' + nome_arquivo + ' na pasta ' + pasta_destino
     
@@ -81,21 +81,21 @@ def sh_regiao(nome_csv, pasta_dados, pasta_destino):
     Return:
         string: success message.
     """
-    precos_combustiveis = read_data(pasta_dados + nome_csv)
-    precos_combustiveis = precos_combustiveis.rename(columns={precos_combustiveis.columns[0]: "Regiao - Sigla"})
+    df = read_data(pasta_dados + nome_csv)
+    df = df.rename(columns={df.columns[0]: "Regiao - Sigla"})
     
-    precos_combustiveis['Valor de Venda'] = precos_combustiveis['Valor de Venda'].str.replace(',','.').astype(float)
-    precos_combustiveis = precos_combustiveis[precos_combustiveis['Produto'].str.contains('GASOLINA')]
+    df['Valor de Venda'] = df['Valor de Venda'].str.replace(',','.').astype(float)
+    df = df[df['Produto'].str.contains('GASOLINA')]
     
-    preco_gasolina_regioes = precos_combustiveis.groupby('Regiao - Sigla')[['Valor de Venda']].mean().round(2)\
-                             .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
+    df_regioes = df.groupby('Regiao - Sigla')[['Valor de Venda']].mean().round(2)\
+                 .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
     
-    nova_linha = {'Regiao - Sigla': 'Total', 'Valor de Venda - Media': round(precos_combustiveis['Valor de Venda'].mean(), 2)}
-    preco_gasolina_regioes = preco_gasolina_regioes.append(nova_linha, ignore_index = True)
+    nova_linha = {'Regiao - Sigla': 'Total', 'Valor de Venda - Media': round(df['Valor de Venda'].mean(), 2)}
+    df_regioes = df_regioes.append(nova_linha, ignore_index = True)
     
     nome_arquivo = 'preco_gasolina_regioes_' + nome_csv[3:]
     
-    write_data(preco_gasolina_regioes, pasta_destino + nome_arquivo)
+    write_data(df_regioes, pasta_destino + nome_arquivo)
     
     return 'Escrevendo ' + nome_arquivo + ' na pasta ' + pasta_destino
     
