@@ -28,7 +28,7 @@ def read_data(file_path):
         df_file (DataFrame): returns the file read as a dataframe.
     """
     try:
-        df = pd.read_csv(file_path, encoding='unicode_escape', sep = ';')
+        df = pd.read_csv(file_path, sep = ';', encoding='ISO-8859-1')
         return df
     except: # pylint: disable=bare-except
         logging.error("Error read_csv. We were not able to find %s", file_path)
@@ -58,12 +58,12 @@ def sh_estado(nome_csv, pasta_dados, pasta_destino):
     precos_combustiveis = precos_combustiveis.rename(columns={precos_combustiveis.columns[0]: "Regiao - Sigla"})
     
     precos_combustiveis['Valor de Venda'] = precos_combustiveis['Valor de Venda'].str.replace(',','.').astype(float)
-    preco_gasolina = precos_combustiveis[precos_combustiveis['Produto'].str.contains('GASOLINA')]
+    precos_combustiveis = precos_combustiveis[precos_combustiveis['Produto'].str.contains('GASOLINA')]
     
-    preco_gasolina_estados = preco_gasolina.groupby('Estado - Sigla')[['Valor de Venda']].mean()\
-                            .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
+    preco_gasolina_estados = precos_combustiveis.groupby('Estado - Sigla')[['Valor de Venda']].mean().round(2)\
+                             .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
     
-    nova_linha = {'Estado - Sigla': 'Total', 'Valor de Venda - Media': preco_gasolina['Valor de Venda'].mean()}
+    nova_linha = {'Estado - Sigla': 'Total', 'Valor de Venda - Media': round(precos_combustiveis['Valor de Venda'].mean(), 2)}
     preco_gasolina_estados = preco_gasolina_estados.append(nova_linha, ignore_index = True)
     
     nome_arquivo = 'preco_gasolina_estados_' + nome_csv[3:]
@@ -87,10 +87,10 @@ def sh_regiao(nome_csv, pasta_dados, pasta_destino):
     precos_combustiveis['Valor de Venda'] = precos_combustiveis['Valor de Venda'].str.replace(',','.').astype(float)
     precos_combustiveis = precos_combustiveis[precos_combustiveis['Produto'].str.contains('GASOLINA')]
     
-    preco_gasolina_regioes = precos_combustiveis.groupby('Regiao - Sigla')[['Valor de Venda']].mean()\
-                            .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
+    preco_gasolina_regioes = precos_combustiveis.groupby('Regiao - Sigla')[['Valor de Venda']].mean().round(2)\
+                             .rename(columns = {'Valor de Venda':'Valor de Venda - Media'}).reset_index()
     
-    nova_linha = {'Regiao - Sigla': 'Total', 'Valor de Venda - Media': precos_combustiveis['Valor de Venda'].mean()}
+    nova_linha = {'Regiao - Sigla': 'Total', 'Valor de Venda - Media': round(precos_combustiveis['Valor de Venda'].mean(), 2)}
     preco_gasolina_regioes = preco_gasolina_regioes.append(nova_linha, ignore_index = True)
     
     nome_arquivo = 'preco_gasolina_regioes_' + nome_csv[3:]
