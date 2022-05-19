@@ -1,5 +1,7 @@
 # Visualização dos preços da gasolina brasileira entre 2004 e 2021
 
+Autores: Matheus Silva e Yolanda Dantas
+
 Projeto da disciplina de MLOps da UFRN que tem como objetivo principal colocar em prática o conteúdo referente a Semana 04 da matéria, focado nos princípios de visualização de dados, escrita limpa, documentação, refatoração e análise da qualidade do código através de ferramentas.
 
 <p align="center">
@@ -55,3 +57,7 @@ streamlit run app.py
 ```
 
 O comando vai abrir uma nova aba no navegador com o dashboard.
+
+## 💻 Vídeo
+
+Link do vídeo explicando o projeto: https://www.loom.com/share/c0dd02ed76e44d1b94b4eccfd72f8b02
