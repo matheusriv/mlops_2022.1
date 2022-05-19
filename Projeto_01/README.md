@@ -13,6 +13,13 @@ Projeto da disciplina de MLOps da UFRN que tem como objetivo principal colocar e
 Verifique se você atende a todos os requisitos a seguir:
 * Ter uma máquina com ` Windows | Linux | Mac `.
 * Ter o [`Python 3.9`](https://www.python.org/downloads/) instalado na sua máquina.
+* Ter os pacotes necessários instalados:
+```
+pip install streamlit
+pip install pandas
+pip install plotly
+pip install matplotlib
+```
 
 ## Começando
 
