@@ -114,7 +114,7 @@ def plot_inflacao_presidentes():
                                   (inflacao_gasolina["Tempo"] <= "2021-12-01")]
 
     # Setting figure size
-    plt.figure(figsize=(8,6))
+    fig = plt.figure(figsize=(8,5))
 
     # Plotting the inflaction variation by Presidents
     plt.plot(lula["Tempo"], lula["ipca_acumulado"],
@@ -129,17 +129,18 @@ def plot_inflacao_presidentes():
     # habilitando as legendas
     plt.legend()
     # definindo titulo e sub-titulo
-    plt.text(731516.0, 60, ""*22+"""Variação da inflação acumulada (2006-2021)""",
-             fontsize=14, weight="bold")
-    plt.text(731000.0, 55,
-             "Governos Lula(2004-2010), Dilma(2011-2016.1), Temer(2016.2-2018)\
-              e Bolsonaro(2019-2021)",
-             fontsize=10)
+    plt.text(0.2, 0.98, "Variação da inflação acumulada (2006-2021)",
+             fontsize=14, weight="bold", ha='left', va='top',
+             transform=fig.transFigure)
+    plt.text(0.07, 0.94, "Governos Lula (2004-2010), Dilma (2011-2016.1), Temer (2016.2-2018) "\
+             "e Bolsonaro (2019-2021)", fontsize=10,
+             ha='left', va='top', transform=fig.transFigure)
     #definindo footer
-    plt.text(731000.0, -21, "Autoria: Yolanda" + " "*110 + "Fonte: IBGE",
-             color="#f0f0f0",
-             backgroundcolor="#4d4d4d",
-             size=11)
+    plt.text(0.035, 0.01, "Autoria: Matheus Silva e Yolanda Dantas" + " "*70 + "Fonte: IBGE",
+             color="#f0f0f0", backgroundcolor="#4d4d4d", size=11,
+             transform=fig.transFigure)
+
+    fig.tight_layout()
 
     plt.savefig("imagens/inflacao_gasolina.png", format="png")
 
@@ -152,19 +153,19 @@ def plot_gasolina_ajustada_presidentes():
     fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=4, ncols=1, figsize=(6,8))
     axes = [ax1, ax2, ax3, ax4]
 
-    for ax in axes:
-        ax.plot(precos_atualizados["Tempo"], precos_atualizados["Preco_Atualizado"],
+    for axis in axes:
+        axis.plot(precos_atualizados["Tempo"], precos_atualizados["Preco_Atualizado"],
                 color="#af0b1e", alpha=0.1)
-        ax.set_yticklabels([])
-        ax.set_xticklabels([])
-        ax.axhline(5, xmin=0.0, xmax=1, color="#625d56", linewidth=(0.5),
+        axis.set_yticklabels([])
+        axis.set_xticklabels([])
+        axis.axhline(5, xmin=0.0, xmax=1, color="#625d56", linewidth=(0.5),
                    alpha=0.2, linestyle="dashdot")
-        ax.axhline(6, xmin=0.0, xmax=1, color="#625d56", linewidth=(0.5),
+        axis.axhline(6, xmin=0.0, xmax=1, color="#625d56", linewidth=(0.5),
                    alpha=0.2, linestyle="dashdot")
-        ax.grid(False)
-        ax.tick_params(bottom=0, left=0)
+        axis.grid(False)
+        axis.tick_params(bottom=0, left=0)
         for location in ["left", "right", "top", "bottom"]:
-            ax.spines[location].set_visible(False)
+            axis.spines[location].set_visible(False)
 
     lula_2 = precos_atualizados[(precos_atualizados["Tempo"] >= "2003-01-01") &
                                 (precos_atualizados["Tempo"] <= "2010-12-01")]
@@ -228,7 +229,7 @@ def plot_gasolina_ajustada_presidentes():
              horizontalalignment="center", verticalalignment="center", transform=ax1.transAxes)
 
     # Credits
-    ax4.text(0.48, -0.2, "Autores: Matheus Silva e Yolanda Dantas" + " "*20 + "Fonte: IBGE, ANP",
+    ax4.text(0.482, -0.18, "Autores: Matheus Silva e Yolanda Dantas" + " "*20 + "Fonte: IBGE, ANP",
              horizontalalignment="center", verticalalignment="center",
              transform=ax4.transAxes, color = "#f0f0f0", backgroundcolor = "#4d4d4d", size=12)
 
@@ -240,7 +241,7 @@ def plot_meta_inflacao():
     """Plota um gráfico line chart da inflação acumulada
     e preços da gasolina usando matplotlib.
     """
-    fig, ax1 = plt.subplots(figsize=(10,6))
+    fig, ax1 = plt.subplots(figsize=(9.8,6))
 
     ax1.plot(inflacao_gasolina["Tempo"], inflacao_gasolina["ipca_acumulado"], color="#db4b26")
     ax1.yaxis.set_ticklabels([])
@@ -286,7 +287,7 @@ def plot_meta_inflacao():
              horizontalalignment="center", verticalalignment="center", transform=ax1.transAxes)
 
     # Credits
-    ax2.text(0.48, -0.1, "Autores: Matheus Silva e Yolanda Dantas" +
+    ax2.text(0.48, -0.17, "Autores: Matheus Silva e Yolanda Dantas" +
              " "*90 + "Fonte: IBGE, ANP", horizontalalignment="center",
              verticalalignment="center", transform=ax1.transAxes,
              color = "#f0f0f0", backgroundcolor = "#4d4d4d", size=12)
