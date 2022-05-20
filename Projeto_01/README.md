@@ -8,7 +8,7 @@ Projeto da disciplina de MLOps da UFRN que tem como objetivo principal colocar e
 <img src="imagens/gasolina_ajustada_presidentes.png" alt="Gráfico dos preços da gasolina ajustados pela inflação por mandatos presidenciais (2004 - 2021)" style="height: 700px;"/>
 </p>
 
-## Requisitos
+## 📚 Requisitos
 
 Verifique se você atende a todos os requisitos a seguir:
 * Ter uma máquina com ` Windows | Linux | Mac `.
@@ -42,9 +42,9 @@ A primeira parte do trabalho foi adquirir o jupyter notebook (arquivo.ipynb) ref
 
 A variável escolhida foi os preços dos combustíveis brasileiros, em particular a gasolina, analisando os dados de 2004 até 2021 [disponibilizados pelo governo federal](https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/serie-historica-de-precos-de-combustiveis).
 
-Com os arquivos csv da série histórica foi feito uma análise prévia e depois um tratamento dos dados, coletando os preços da gasolina por estados e regiões. Esta análise foi feita no notebook sh_estados_regioes.
+Com os arquivos csv da série histórica foi feito uma análise prévia e depois um tratamento dos dados, coletando os preços da gasolina por estados e regiões. Esta análise foi feita no notebook *sh_estados_regioes*.
 
-No notebook gasolina_precos_analise foi utilizado os arquivos gerados de preços por estados e regiões e se calcula o preço médio por ano da gasolina.
+No notebook *gasolina_precos_analise* foi utilizado os arquivos gerados de preços por estados e regiões e se calcula o preço médio por ano da gasolina.
 
 Por último foi criado um dashboard com a solução no Streamlit.io para a visualização dos dados e gráficos.
 
@@ -55,13 +55,14 @@ Você pode verificar se todas as técnicas de práticas recomendadas de codifica
 pylint app.py
 ```
 
-Para explorar o dashboard do streamlit é só colocar na linha de comando:
+## 💻 Streamlit
+Para iniciar o dashboard no streamlit localmente, no terminal, você pode executar o seguinte comando: 
 ```
 streamlit run app.py
 ```
 
-O comando vai abrir uma nova aba no navegador com o dashboard.
+Para visitar o dashboard online é só acessar o link: https://share.streamlit.io/matheusriv/mlops_2022.1/main/Projeto_01/app_web.py
 
-## 💻 Vídeo
+## 🎥 Vídeo
 
 Link do vídeo explicando o projeto: https://www.loom.com/share/c0dd02ed76e44d1b94b4eccfd72f8b02
