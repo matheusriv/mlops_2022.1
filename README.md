@@ -8,9 +8,12 @@ Repositório de resolução de exercícios da disciplina IMD1123 - TÓPICOS ESPE
 
 Repositório da disciplina: https://github.com/ivanovitchm/mlops
 
+## Certificados Dataquest
+* [Git and Version Control](https://app.dataquest.io/view_cert/NOFZSC537298CI2LGKPI)
 
-#### Certificado "Git and Version Control"
-Certificado do Dataquest em relação a completude do Curso "Git and Version Control" [neste link.](https://app.dataquest.io/view_cert/NOFZSC537298CI2LGKPI)
+* [Elements of the Command Line](https://app.dataquest.io/view_cert/QCJG73HAIRY560LZB2FJ)
+
+* [Building a Data Pipeline](https://app.dataquest.io/view_cert/B0D03P8JZRHRRF6CANC4)
 
 ## Identificação Pessoal
 - Email institucional: matheus.rivaldo.129@ufrn.edu.br
