@@ -8,6 +8,11 @@ Repositório de resolução de exercícios da disciplina IMD1123 - TÓPICOS ESPE
 
 Repositório da disciplina: https://github.com/ivanovitchm/mlops
 
+## Projetos
+[Visualização de dados dos preços da gasolina brasileira](https://github.com/matheusriv/gasoline_prices)
+
+[Utilizando boas práticas no Guided Project: Predicting Car Prices do Dataquest](https://github.com/matheusriv/mlops_car_prices_U1T3)
+
 ## Certificados Dataquest
 * [Git and Version Control](https://app.dataquest.io/view_cert/NOFZSC537298CI2LGKPI)
 
