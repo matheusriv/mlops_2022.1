@@ -18,6 +18,12 @@ Repositório da disciplina: https://github.com/ivanovitchm/mlops
 
 * [Elements of the Command Line](https://app.dataquest.io/view_cert/QCJG73HAIRY560LZB2FJ)
 
+* [Text Processing in the Command Line](https://app.dataquest.io/view_cert/9K3Y7V9BKFU8U217GDZ8)
+
+* [Data Visualization Fundamentals](https://app.dataquest.io/view_cert/V0BF8P3ND8OWNMK3DLZK)
+
+* [Storytelling Data Visualization and Information Design](https://app.dataquest.io/view_cert/0U852VUCXAZWT6XIECJJ)
+
 * [Functions: Advanced](https://app.dataquest.io/view_cert/UR14KDPRGI7W3L1JSBWA)
 
 * [Building a Data Pipeline](https://app.dataquest.io/view_cert/B0D03P8JZRHRRF6CANC4)
